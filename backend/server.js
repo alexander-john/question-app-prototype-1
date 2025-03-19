@@ -77,5 +77,34 @@ app.get("/question", async (req, res) => {
   }
 });
 
+app.get("/multiple-choice-question", async (req, res) => {
+  try {
+    const question = {
+      question: "What is the capital of France?",
+      options: ["Paris", "London", "Berlin", "Madrid"],
+    };
+    res.json(question);
+  } catch (error) {
+    console.error("Error fetching multiple-choice question:", error);
+    res.status(500).json({ error: "Failed to fetch question" });
+  }
+});
+
+app.post("/submit-answer", async (req, res) => {
+  const { answer } = req.body;
+  try {
+    // Example: Check if the answer is correct
+    const correctAnswer = "Paris";
+    if (answer === correctAnswer) {
+      res.json({ message: "Correct!" });
+    } else {
+      res.json({ message: "Incorrect. Try again!" });
+    }
+  } catch (error) {
+    console.error("Error submitting answer:", error);
+    res.status(500).json({ error: "Failed to submit answer" });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
