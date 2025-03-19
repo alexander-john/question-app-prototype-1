@@ -11,7 +11,7 @@ const App = () => {
     <Router>
       <div className="container">
         <nav>
-          <Link to="/">Home</Link> | <Link to="/register">Register</Link> | <Link to="/login">Login</Link>
+          <Link to="/">Questions</Link> | <Link to="/register">Register</Link> | <Link to="/login">Login</Link>
         </nav>
         <Routes>
           <Route path="/" element={<QuestionPage />} />
