@@ -3,7 +3,7 @@ import axios from "axios";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Register from "./Register";
 import Login from "./Login";
-import QuestionPage from "./QuestionPage";
+import QuestionPage from "./pages/QuestionPage"; // Updated path
 import MultipleChoicePage from "./MultipleChoicePage";
 import "./App.css";
 
