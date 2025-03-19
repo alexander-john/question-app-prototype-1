@@ -15,8 +15,15 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Route to get a random question
 app.get("/question", async (req, res) => {
-  const question = await Question.findOne(); // Fetches a single question
-  res.json(question);
+  try {
+    const count = await Question.countDocuments(); // Get the total number of questions
+    const randomIndex = Math.floor(Math.random() * count); // Generate a random index
+    const question = await Question.findOne().skip(randomIndex); // Fetch a random question
+    res.json(question);
+  } catch (error) {
+    console.error("Error fetching question:", error);
+    res.status(500).json({ error: "Failed to fetch question" });
+  }
 });
 
 const PORT = process.env.PORT || 5000;
