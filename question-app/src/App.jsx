@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Register from "./Register";
+import Login from "./Login";
 import "./App.css";
 
 const App = () => {
@@ -25,20 +28,29 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Question:</h2>
-      <p>{question || "Loading..."}</p>
-      
-      <textarea
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        placeholder="Write your answer here..."
-      ></textarea>
+    <Router>
+      <div className="container">
+        <nav>
+          <Link to="/register">Register</Link> | <Link to="/login">Login</Link>
+        </nav>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <h2>Question:</h2>
+        <p>{question || "Loading..."}</p>
+        
+        <textarea
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+          placeholder="Write your answer here..."
+        ></textarea>
 
-      <br />
+        <br />
 
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
+    </Router>
   );
 };
 
