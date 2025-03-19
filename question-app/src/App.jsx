@@ -31,24 +31,28 @@ const App = () => {
     <Router>
       <div className="container">
         <nav>
-          <Link to="/register">Register</Link> | <Link to="/login">Login</Link>
+          <Link to="/">Home</Link> | <Link to="/register">Register</Link> | <Link to="/login">Login</Link>
         </nav>
         <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <h2>Question:</h2>
+                <p>{question || "Loading..."}</p>
+                <textarea
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  placeholder="Write your answer here..."
+                ></textarea>
+                <br />
+                <button onClick={handleSubmit}>Submit</button>
+              </>
+            }
+          />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
-        <h2>Question:</h2>
-        <p>{question || "Loading..."}</p>
-        
-        <textarea
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-          placeholder="Write your answer here..."
-        ></textarea>
-
-        <br />
-
-        <button onClick={handleSubmit}>Submit</button>
       </div>
     </Router>
   );
