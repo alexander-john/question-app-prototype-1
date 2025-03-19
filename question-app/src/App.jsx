@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 
 const App = () => {
   const [code, setCode] = useState("");
@@ -8,7 +9,7 @@ const App = () => {
   };
 
   return (
-    <div style={{ maxWidth: "600px", margin: "50px auto", textAlign: "center" }}>
+    <div className="container">
       <h2>Question:</h2>
       <p>Write a function that reverses a string.</p>
       
@@ -16,34 +17,11 @@ const App = () => {
         value={code}
         onChange={(e) => setCode(e.target.value)}
         placeholder="Write your answer here..."
-        style={{
-          width: "100%",
-          height: "150px",
-          fontSize: "16px",
-          fontFamily: "monospace",
-          padding: "10px",
-          borderRadius: "5px",
-          border: "1px solid #ccc",
-        }}
       ></textarea>
 
       <br />
 
-      <button
-        onClick={handleSubmit}
-        style={{
-          marginTop: "10px",
-          padding: "10px 20px",
-          fontSize: "16px",
-          backgroundColor: "#007bff",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
-        Submit
-      </button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
