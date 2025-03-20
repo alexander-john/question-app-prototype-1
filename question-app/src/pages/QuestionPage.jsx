@@ -14,6 +14,7 @@ const QuestionPage = () => {
   };
 
   useEffect(() => {
+    console.log("useEffect called");
     fetchQuestion();
   }, []);
 
