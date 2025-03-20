@@ -8,26 +8,31 @@ const MultipleChoicePage = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    // Fetch a multiple-choice question from the backend
-    axios
-      .get("http://localhost:5000/multiple-choice-question")
-      .then((response) => {
+    const fetchMultipleChoiceQuestion = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/questions/multiple-choice");
         setQuestion(response.data.question);
         setOptions(response.data.options);
-      })
-      .catch((error) => console.error("Error fetching question:", error));
+      } catch (error) {
+        console.error("Error fetching multiple-choice question:", error);
+      }
+    };
+    fetchMultipleChoiceQuestion();
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmitAnswer = async () => {
     if (!selectedOption) {
       setMessage("Please select an option.");
       return;
     }
-    // Submit the selected answer
-    axios
-      .post("http://localhost:5000/submit-answer", { answer: selectedOption })
-      .then((response) => setMessage(response.data.message))
-      .catch((error) => setMessage("Error submitting answer."));
+    try {
+      const response = await axios.post("http://localhost:5000/questions/submit-answer", {
+        answer: selectedOption,
+      });
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage("Error submitting answer.");
+    }
   };
 
   return (
@@ -49,7 +54,7 @@ const MultipleChoicePage = () => {
           </div>
         ))}
       </div>
-      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={handleSubmitAnswer}>Submit</button>
       {message && <p>{message}</p>}
     </div>
   );

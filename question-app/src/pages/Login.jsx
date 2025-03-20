@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/login", formData);
+      const response = await axios.post("http://localhost:5000/auth/login", formData);
       setMessage(response.data.message);
       setToken(response.data.token); // Save the token for future use
     } catch (error) {
