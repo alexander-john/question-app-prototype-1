@@ -1,7 +1,6 @@
 import { BrowserRouter as Router } from "react-router-dom";
-
 import "./App.css";
-import Navbar from "./components/NavigationComponent";
+import NavigationComponent from "./components/NavigationComponent";
 import RoutesComponent from "./routes/RoutesComponent";
 
 const App = () => {
@@ -9,7 +8,7 @@ const App = () => {
         // Set up the Router for navigation
         <Router>
             <div className="container">
-                <Navbar />
+                <NavigationComponent />
                 <RoutesComponent />
             </div>
         </Router>
