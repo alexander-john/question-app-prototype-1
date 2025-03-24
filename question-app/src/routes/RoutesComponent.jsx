@@ -1,7 +1,6 @@
-// filepath: c:\projects\question-app-prototype-1\question-app\src\routes\RoutesComponent.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import HomePage from "../pages/Homepage";
+import Home from "../pages/Home";
 import QuestionPage from "../pages/QuestionPage";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
@@ -11,7 +10,7 @@ import Dashboard from "../pages/Dashboard";
 const RoutesComponent = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<Home />} />
       <Route path="/questions" element={<QuestionPage />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
