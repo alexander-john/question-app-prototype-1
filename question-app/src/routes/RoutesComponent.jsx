@@ -16,13 +16,9 @@ const RoutesComponent = () => {
             <Route path="/" element={<Home />} />
             <Route path="/python" element={<PythonPage />} />
             <Route path="/javascript" element={<JavaScriptPage />} />
-
-            {/* <Route path="/languages/python/questions" element={<PythonQuestions />} />
-            <Route path="/questions" element={<QuestionPage />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/multiple-choice" element={<MultipleChoicePage />} />
-            <Route path="/dashboard" element={<Dashboard />} /> */}
+            <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
     );
 };
