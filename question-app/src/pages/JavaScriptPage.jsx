@@ -3,7 +3,7 @@ import React from "react";
 const PythonQuestions = () => {
   return (
     <div>
-      <h1>Questions</h1>
+      <h1>JavaScript</h1>
     </div>
   );
 };

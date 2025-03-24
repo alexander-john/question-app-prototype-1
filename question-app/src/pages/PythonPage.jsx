@@ -1,9 +1,10 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 
 const Python = () => {
   return (
-    <Outlet />
+    <div>
+      <h1>Python</h1>
+    </div>
   );
 };
 

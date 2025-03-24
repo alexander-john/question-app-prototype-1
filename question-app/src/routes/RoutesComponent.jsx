@@ -7,23 +7,22 @@ import Login from "../pages/Login";
 import MultipleChoicePage from "../pages/MultipleChoicePage";
 import Dashboard from "../pages/Dashboard";
 import LanguagesPage from "../pages/LanguagesPage";
-import Python from "../pages/Python";
-import PythonQuestions from "../pages/PythonQuestions";
+import PythonPage from "../pages/PythonPage";
+import JavaScriptPage from "../pages/JavaScriptPage";
 
 const RoutesComponent = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/languages" element={<LanguagesPage />}>
-                <Route path="python" element={<Python />}>
-                    <Route path="questions" element={<PythonQuestions />} />
-                </Route>
-            </Route>
+            <Route path="/python" element={<PythonPage />} />
+            <Route path="/javascript" element={<JavaScriptPage />} />
+
+            {/* <Route path="/languages/python/questions" element={<PythonQuestions />} />
             <Route path="/questions" element={<QuestionPage />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/multiple-choice" element={<MultipleChoicePage />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} /> */}
         </Routes>
     );
 };

@@ -4,12 +4,9 @@ import { Link } from "react-router-dom";
 const NavigationComponent = () => {
     return (
         <nav>
-            <Link to="/">Home</Link> | <Link to="/languages">Languages</Link> |{" "}
-            <Link to="/questions">Questions</Link> |{" "}
-            <Link to="/register">Register</Link> |{" "}
-            <Link to="/login">Login</Link> |{" "}
-            <Link to="/multiple-choice">Multiple Choice</Link> |{" "}
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/">Home</Link> | <Link to="/python">Python</Link> |{" "}
+            <Link to="/javascript">JavaScript</Link> |{" "}
+            <Link to="/cplusplus">C++</Link>
         </nav>
     );
 };

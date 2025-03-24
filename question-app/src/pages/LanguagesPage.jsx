@@ -6,13 +6,9 @@ const LanguagesPage = () => {
         <div>
             <h1>Languages</h1>
             <ul>
-                <li>
-                    <Link to="python">Python</Link>
-                </li>
-                {/* Add more language links here */}
+              <li>Python</li>
+              <li>JavaScript</li>
             </ul>
-            {/* Render nested routes here */}
-            <Outlet />
         </div>
     );
 };
