@@ -37,7 +37,7 @@ const MultipleChoicePage = () => {
 
   return (
     <div className="container">
-      <h2>Multiple Choice Question</h2>
+      <h1>JavaScript Multiple Choice</h1>
       <p>{question || "Loading..."}</p>
       <div>
         {options.map((option, index) => (
