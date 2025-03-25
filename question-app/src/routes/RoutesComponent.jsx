@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import QuestionPage from "../pages/QuestionPage";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
-import MultipleChoicePage from "../pages/javascript/JavaScriptMultipleChoicePage";
+import JavaScriptMultipleChoicePage from "../pages/javascript/JavaScriptMultipleChoicePage";
 import Dashboard from "../pages/Dashboard";
 import LanguagesPage from "../pages/LanguagesPage";
 import PythonPage from "../pages/PythonPage";
@@ -29,11 +29,13 @@ const RoutesComponent = () => {
                 element={<PythonPage />}
             />
 
-            <Route path="/javascript" element={<JavaScriptPage />} />
             <Route
-                path="/javascript/multiple-choice"
-                element={<MultipleChoicePage />}
+                path="questions/javascript/multiple-choice"
+                element={<JavaScriptMultipleChoicePage />}
             />
+
+            <Route path="/javascript" element={<JavaScriptPage />} />
+
             <Route
                 path="/javascript/problem-solving"
                 element={<JavaScriptPage />}

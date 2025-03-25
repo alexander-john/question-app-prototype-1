@@ -2,62 +2,80 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const MultipleChoicePage = () => {
-  const [question, setQuestion] = useState("");
-  const [options, setOptions] = useState([]);
-  const [selectedOption, setSelectedOption] = useState("");
-  const [message, setMessage] = useState("");
+    const [question, setQuestion] = useState("");
+    const [options, setOptions] = useState({});
+    const [correctAnswer, setCorrectAnswer] = useState("");
+    const [selectedOption, setSelectedOption] = useState("");
+    const [message, setMessage] = useState("");
 
-  useEffect(() => {
     const fetchMultipleChoiceQuestion = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/questions/multiple-choice");
-        setQuestion(response.data.question);
-        setOptions(response.data.options);
-      } catch (error) {
-        console.error("Error fetching multiple-choice question:", error);
-      }
+        try {
+            const response = await axios.get(
+                "http://localhost:5000/questions/javascript/multiple-choice"
+            );
+            setQuestion(response.data.question);
+            setOptions(response.data.options);
+            setCorrectAnswer(response.data.answer);
+        } catch (error) {
+            console.error(
+                "Error fetching multiple-choice question frontend:",
+                error
+            );
+        }
     };
-    fetchMultipleChoiceQuestion();
-  }, []);
 
-  const handleSubmitAnswer = async () => {
-    if (!selectedOption) {
-      setMessage("Please select an option.");
-      return;
-    }
-    try {
-      const response = await axios.post("http://localhost:5000/questions/submit-answer", {
-        answer: selectedOption,
-      });
-      setMessage(response.data.message);
-    } catch (error) {
-      setMessage("Error submitting answer.");
-    }
-  };
+    useEffect(() => {
+        fetchMultipleChoiceQuestion();
+    }, []);
 
-  return (
-    <div className="container">
-      <h1>JavaScript Multiple Choice</h1>
-      <p>{question || "Loading..."}</p>
-      <div>
-        {options.map((option, index) => (
-          <div key={index}>
-            <label>
-              <input
-                type="radio"
-                name="option"
-                value={option}
-                onChange={(e) => setSelectedOption(e.target.value)}
-              />
-              {option}
-            </label>
-          </div>
-        ))}
-      </div>
-      <button onClick={handleSubmitAnswer}>Submit</button>
-      {message && <p>{message}</p>}
-    </div>
-  );
+    const handleSubmitAnswer = () => {
+        if (!selectedOption) {
+            setMessage("Please select an option.");
+            return;
+        }
+        if (selectedOption === correctAnswer) {
+            setMessage("Correct answer!");
+            fetchMultipleChoiceQuestion();
+        } else {
+            setMessage("Incorrect answer.");
+        }
+    };
+
+    if (!question) {
+        return (
+            <div className="container">
+                <p>Loading...</p>
+            </div>
+        );
+    }
+
+    const optionsArray = Object.entries(options);
+
+    return (
+        <div className="container">
+            <h1>JavaScript Multiple Choice</h1>
+            <p>{question}</p>
+            <div>
+                {optionsArray.map(([key, value]) => (
+                    <div key={key}>
+                        <label>
+                            <input
+                                type="radio"
+                                name="option"
+                                value={key}
+                                onChange={(e) =>
+                                    setSelectedOption(e.target.value)
+                                }
+                            />
+                            {`${key}: ${value}`}
+                        </label>
+                    </div>
+                ))}
+            </div>
+            <button onClick={handleSubmitAnswer}>Submit</button>
+            {message && <p>{message}</p>}
+        </div>
+    );
 };
 
 export default MultipleChoicePage;
