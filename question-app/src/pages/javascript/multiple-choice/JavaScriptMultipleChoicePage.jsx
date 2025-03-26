@@ -72,7 +72,9 @@ const MultipleChoicePage = () => {
                     </div>
                 ))}
             </div>
+            <button onClick={handleSubmitAnswer}>Previous</button>
             <button onClick={handleSubmitAnswer}>Submit</button>
+            <button onClick={fetchMultipleChoiceQuestion}>Next</button>
             {message && <p>{message}</p>}
         </div>
     );
