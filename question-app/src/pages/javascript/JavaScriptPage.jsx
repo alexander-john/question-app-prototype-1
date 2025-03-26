@@ -1,5 +1,5 @@
 import React from "react";
-import JavaScriptNavigation from "../components/JavaScriptNavigation";
+import JavaScriptNavigation from "../../components/JavaScriptNavigation";
 
 const PythonQuestions = () => {
   return (

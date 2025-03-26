@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import JavaScriptMultipleChoicePage from "../pages/javascript/multiple-choice/JavaScriptMultipleChoicePage";
-import JavaScriptPage from "../pages/JavaScriptPage";
+import JavaScriptPage from "../pages/javascript/JavaScriptPage";
 
 const RoutesComponent = () => {
     return (
