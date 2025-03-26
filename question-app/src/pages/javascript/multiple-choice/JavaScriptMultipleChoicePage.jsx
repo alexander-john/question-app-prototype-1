@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const MultipleChoicePage = () => {
+    const [questionHistory, setQuestionHistory] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(-1);
     const [question, setQuestion] = useState("");
     const [options, setOptions] = useState({});
     const [correctAnswer, setCorrectAnswer] = useState("");
@@ -13,9 +15,24 @@ const MultipleChoicePage = () => {
             const response = await axios.get(
                 "http://localhost:5000/questions/javascript/multiple-choice"
             );
-            setQuestion(response.data.question);
-            setOptions(response.data.options);
-            setCorrectAnswer(response.data.answer);
+
+            const newQuestion = {
+                question: response.data.question,
+                options: response.data.options,
+                answer: response.data.answer,
+            };
+
+            const updatedHistory = [
+                ...questionHistory.slice(0, currentIndex + 1),
+                newQuestion,
+            ];
+
+            setQuestionHistory(updatedHistory);
+            setCurrentIndex(updatedHistory.length - 1);
+
+            setQuestion(newQuestion.question);
+            setOptions(newQuestion.options);
+            setCorrectAnswer(newQuestion.answer);
             setSelectedOption("");
             setMessage("");
         } catch (error) {
@@ -23,6 +40,18 @@ const MultipleChoicePage = () => {
                 "Error fetching multiple-choice question frontend:",
                 error
             );
+        }
+    };
+
+    const goToPreviousQuestion = () => {
+        if (currentIndex > 0) {
+            const prev = questionHistory[currentIndex - 1];
+            setCurrentIndex(currentIndex - 1);
+            setQuestion(prev.question);
+            setOptions(prev.options);
+            setCorrectAnswer(prev.answer);
+            setSelectedOption("");
+            setMessage("");
         }
     };
 
@@ -75,7 +104,9 @@ const MultipleChoicePage = () => {
                     </div>
                 ))}
             </div>
-            <button onClick={handleSubmitAnswer}>Previous</button>
+            <button onClick={goToPreviousQuestion} disabled={currentIndex <= 0}>
+                Previous
+            </button>
             <button onClick={handleSubmitAnswer}>Submit</button>
             <button onClick={fetchMultipleChoiceQuestion}>Next</button>
             {message && <p>{message}</p>}
