@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const MultipleChoicePage = () => {
     const [questionHistory, setQuestionHistory] = useState([]);
@@ -97,6 +98,12 @@ const MultipleChoicePage = () => {
     return (
         <div className="container">
             <h1>JavaScript Multiple Choice</h1>
+            <nav>
+                <Link to="/javascript/multiple-choice/chapter-1">Chapter 1</Link> |{" "}
+                <Link to="/javascript">Chapter 2</Link> |{" "}
+                <Link to="/login">Chapter 3</Link> |{" "}
+                <Link to="/register">Chapter 4</Link>
+            </nav>
             <p>{question}</p>
             <div>
                 {optionsArray.map(([key, value]) => (
