@@ -55,6 +55,18 @@ const MultipleChoicePage = () => {
         }
     };
 
+    const goToNextQuestionInHistory = () => {
+        if (currentIndex < questionHistory.length - 1) {
+            const next = questionHistory[currentIndex + 1];
+            setCurrentIndex(currentIndex + 1);
+            setQuestion(next.question);
+            setOptions(next.options);
+            setCorrectAnswer(next.answer);
+            setSelectedOption("");
+            setMessage("");
+        }
+    };
+
     useEffect(() => {
         fetchMultipleChoiceQuestion();
     }, []);
@@ -108,7 +120,18 @@ const MultipleChoicePage = () => {
                 Previous
             </button>
             <button onClick={handleSubmitAnswer}>Submit</button>
-            <button onClick={fetchMultipleChoiceQuestion}>Next</button>
+            <button
+                onClick={() => {
+                    if (currentIndex < questionHistory.length - 1) {
+                        goToNextQuestionInHistory();
+                    } else {
+                        fetchMultipleChoiceQuestion(); // fetch new if at end of history
+                    }
+                }}
+            >
+                Next
+            </button>
+
             {message && <p>{message}</p>}
         </div>
     );
