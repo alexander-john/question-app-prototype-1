@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
-import JavaScriptMultipleChoicePage from "../pages/javascript/JavaScriptMultipleChoicePage";
+import JavaScriptMultipleChoicePage from "../pages/javascript/multiple-choice/JavaScriptMultipleChoicePage";
 import JavaScriptPage from "../pages/JavaScriptPage";
 
 const RoutesComponent = () => {
