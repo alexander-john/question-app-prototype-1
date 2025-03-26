@@ -16,6 +16,8 @@ const MultipleChoicePage = () => {
             setQuestion(response.data.question);
             setOptions(response.data.options);
             setCorrectAnswer(response.data.answer);
+            setSelectedOption("");
+            setMessage("");
         } catch (error) {
             console.error(
                 "Error fetching multiple-choice question frontend:",
@@ -63,6 +65,7 @@ const MultipleChoicePage = () => {
                                 type="radio"
                                 name="option"
                                 value={key}
+                                checked={selectedOption === key}
                                 onChange={(e) =>
                                     setSelectedOption(e.target.value)
                                 }
