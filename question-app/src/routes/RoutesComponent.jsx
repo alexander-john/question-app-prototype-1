@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import JavaScriptMultipleChoicePage from "../pages/javascript/multiple-choice/JavaScriptMultipleChoicePage";
 import JavaScriptPage from "../pages/javascript/JavaScriptPage";
+import JavaScriptMakeMe from "../pages/javascript/make-me/JavaScriptMakeMe"
 
 const RoutesComponent = () => {
     return (
@@ -14,6 +15,10 @@ const RoutesComponent = () => {
             <Route
                 path="/javascript/multiple-choice/chapter-1"
                 element={<JavaScriptMultipleChoicePage />}
+            />
+            <Route
+                path="/javascript/make-me"
+                element={<JavaScriptMakeMe />}
             />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
