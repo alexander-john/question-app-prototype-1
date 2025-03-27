@@ -1,7 +1,7 @@
 import React from "react";
 import JavaScriptNavigation from "../../components/JavaScriptNavigation";
 
-const PythonQuestions = () => {
+const JavaScriptPage = () => {
   return (
     <div>
       <h1>JavaScript</h1>
@@ -10,4 +10,4 @@ const PythonQuestions = () => {
   );
 };
 
-export default PythonQuestions;
+export default JavaScriptPage;

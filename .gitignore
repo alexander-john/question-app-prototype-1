@@ -26,3 +26,6 @@ Thumbs.db
 
 # Miscellaneous
 *.env
+
+# temp folder for docker eval
+temp/
