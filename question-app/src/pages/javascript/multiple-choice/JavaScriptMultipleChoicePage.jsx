@@ -99,10 +99,10 @@ const MultipleChoicePage = () => {
         <div className="container">
             <h1>JavaScript Multiple Choice</h1>
             <nav>
-                <Link to="/javascript/multiple-choice/chapter-1">Chapter 1</Link> |{" "}
-                <Link to="/javascript">Chapter 2</Link> |{" "}
+                <Link to="/javascript/multiple-choice/chapter-1">Chapter 1</Link>
+                {/* <Link to="/javascript">Chapter 2</Link> |{" "}
                 <Link to="/login">Chapter 3</Link> |{" "}
-                <Link to="/register">Chapter 4</Link>
+                <Link to="/register">Chapter 4</Link> */}
             </nav>
             <p>{question}</p>
             <div>
