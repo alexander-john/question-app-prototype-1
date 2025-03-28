@@ -5,9 +5,9 @@ const JavaScriptNavigation = () => {
     return (
         <nav>
             <Link to="/javascript/multiple-choice/chapter-1">Multiple Choice</Link> |{" "}
-            <Link to="/javascript/problem-solving">Problem Solving</Link> |{" "}
-            <Link to="/javascript/make-me">Make Me</Link> |{" "}
-            <Link to="/javascript/libraries">Libraries</Link>
+            {/* <Link to="/javascript/problem-solving">Problem Solving</Link> */}
+            <Link to="/javascript/make-me">Make Me</Link>
+            {/* <Link to="/javascript/libraries">Libraries</Link> */}
         </nav>
     );
 };
