@@ -1,4 +1,3 @@
-// CodeEditor.jsx
 import React, { useEffect, useRef } from 'react';
 import { EditorView, basicSetup } from 'codemirror';
 import { EditorState } from '@codemirror/state';

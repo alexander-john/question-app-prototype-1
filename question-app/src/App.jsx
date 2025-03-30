@@ -1,7 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import NavigationComponent from "./components/NavigationComponent";
-import RoutesComponent from "./routes/RoutesComponent";
+import RoutesComponent from "./components/RoutesComponent.jsx";
 
 const App = () => {
     return (
