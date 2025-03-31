@@ -100,9 +100,6 @@ const MultipleChoicePage = () => {
             <h1>JavaScript Multiple Choice</h1>
             <nav>
                 <Link to="/javascript/multiple-choice/chapter-1">Chapter 1</Link>
-                {/* <Link to="/javascript">Chapter 2</Link> |{" "}
-                <Link to="/login">Chapter 3</Link> |{" "}
-                <Link to="/register">Chapter 4</Link> */}
             </nav>
             <p>{question}</p>
             <div>
@@ -132,7 +129,7 @@ const MultipleChoicePage = () => {
                     if (currentIndex < questionHistory.length - 1) {
                         goToNextQuestionInHistory();
                     } else {
-                        fetchMultipleChoiceQuestion(); // fetch new if at end of history
+                        fetchMultipleChoiceQuestion();
                     }
                 }}
             >
