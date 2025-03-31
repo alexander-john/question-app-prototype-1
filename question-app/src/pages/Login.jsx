@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     try {
       // Update the API endpoint to the correct URL
-      const response = await axios.post("http://localhost:5000/auth/login", { email, password }); // Replace 5000 with your backend port
+      const response = await axios.post("http://localhost:5000/api/auth/login", { email, password }); // Replace 5000 with your backend port
       const { token } = response.data;
 
       // Save the token to localStorage
