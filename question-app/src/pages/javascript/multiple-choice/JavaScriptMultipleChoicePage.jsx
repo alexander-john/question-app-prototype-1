@@ -14,7 +14,7 @@ const MultipleChoicePage = () => {
     const fetchMultipleChoiceQuestion = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:5000/questions/javascript/multiple-choice"
+                "http://localhost:5000/api/questions/javascript/multiple-choice"
             );
 
             const newQuestion = {

@@ -8,7 +8,7 @@ const QuestionPage = () => {
 
   const fetchQuestion = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/questions/");
+      const response = await axios.get("http://localhost:5000/api/questions/");
       setQuestion(response.data); // Ensure the response is set directly
     } catch (error) {
       console.error("Error fetching question:", error);
